@@ -458,6 +458,7 @@ KLEE_CONFIGURE_FLAGS = -DCMAKE_INSTALL_PREFIX=$(S2E_PREFIX)                     
                        -DCMAKE_C_COMPILER=$(CLANG_CC)                                       \
                        -DCMAKE_CXX_COMPILER=$(CLANG_CXX)                                    \
                        -DUSE_CMAKE_FIND_PACKAGE_LLVM=On                                     \
+                       -DCMAKE_EXPORT_COMPILE_COMMANDS=On                                   \
                        -DENABLE_UNIT_TESTS=On                                               \
                        -DGTEST_SRC_DIR=$(S2E_BUILD)/googletest-release-1.8.0                \
                        -DENABLE_DOCS=Off                                                    \
@@ -775,6 +776,7 @@ TOOLS_CONFIGURE_FLAGS = -DCMAKE_INSTALL_PREFIX=$(S2E_PREFIX)              \
                         -DCMAKE_CXX_COMPILER=$(CLANG_CXX)                 \
                         -DCMAKE_C_FLAGS="$(CFLAGS_ARCH)"                  \
                         -DCMAKE_PREFIX_PATH="$(S2E_PREFIX)"               \
+                        -DCMAKE_EXPORT_COMPILE_COMMANDS=ON                \
                         -DLIBCPU_SRC_DIR=$(S2E_SRC)/libcpu                \
                         -DLIBTCG_SRC_DIR=$(S2E_SRC)/libtcg                \
                         -DS2EPLUGINS_SRC_DIR=$(S2E_SRC)/libs2eplugins/src \
