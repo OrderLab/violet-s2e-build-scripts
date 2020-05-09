@@ -71,6 +71,7 @@ LLVM_VERSION=3.9.1
 LLVM_SRC=llvm-$(LLVM_VERSION).src.tar.xz
 LLVM_SRC_DIR=llvm-$(LLVM_VERSION).src
 LLVM_SRC_URL = http://llvm.org/releases/$(LLVM_VERSION)
+DROP_BOX_URL = https://www.dropbox.com/s/3ys0hvtubei5axi
 
 # The Python script should only return a single word - the suffix of the Clang
 # binary to download. If an error message is printed to stderr, the Makefile
@@ -203,6 +204,9 @@ ifeq ($(LLVM_BUILD),$(S2E_BUILD))
 # Download LLVM
 $(LLVM_SRC) $(CLANG_SRC) $(COMPILER_RT_SRC) $(CLANG_BINARY):
 	wget $(LLVM_SRC_URL)/$@
+
+$(CLANG_BINARY):
+	wget $(DROP_BOX_URL)/$@
 
 .INTERMEDIATE: $(CLANG_SRC_DIR) $(COMPILER_RT_SRC_DIR) $(CLANG_BINARY_DIR)
 
